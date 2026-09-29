@@ -22,6 +22,19 @@
 
 #p = "0x2A"
 ```
+
+№1.4
+
+```
+a = 10
+while a > 0:
+    a -= 0.1
+```
+
+№1.5
+** - возведение числа в степень. Слишком больше число для возможности его обработки
+
+
 # 2. Сообщения об ошибках
 
 2.1 НЕВЕРНЫЙ СИНТАКСИС
@@ -71,45 +84,29 @@ e = a - d
 f = d - (e)
 print (f)
 ```
+3.4 Решение задачи с неправильным кодом
+```
+import random
+def naive_mul(x, y):
 
-# 
-Исходный код
+    r = 0
+    for i in range(y):
+        r = r + x
+    return r
+def run_tests():
+    for _ in range(100):
+        x = random.randint(0, 100)
+        y = random.randint(0, 100)
+        assert naive_mul(x, y) == x * y, f"Ошибка: {x} * {y} должно быть {x * y}"
+    print(x)
+    print(y)
+    print("Все тесты успешно пройдены!")
+run_tests()
+```
+3.5
 
-#def naive_mul(x, y):
 
-r = 1;
-for i in range(0, y - 1)
-x = x + r;
-end
+3.6
 
-#ИСПРАВЛЕНЫЙ
-#import random
 
-#def kodone_mul(x, y):
-#   result = 0
-#   for i in range(y):
-#       result = result + x;
-#   return result
-#print (x)
-#t = 10
-#for o in range(t):
-#    g = random.randint(0, 100)
-#    h = random.randint(0, 100)
-#    my_result = kodone_mul(g, h)
-#    correct_result = g * h
-#    if my_result == correct_result:
-#        print ("uspeh")
-#        print (g)
-#        print (h)
-#    else:
-#        print ("neuspeh")
-
-#def rus_cre_mul(x, y):
-#    result = 0
-#    while x > 0:
-#        if x % 2 != 0:
-#            result += y
-#        x //= 2
-#        y *= 2
-#    return result
-#print (rus_cre_mul)
+3.7
