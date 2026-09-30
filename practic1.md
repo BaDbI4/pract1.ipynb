@@ -86,22 +86,15 @@ print (f)
 ```
 3.4 Решение задачи с неправильным кодом
 ```
-import random
-def naive_mul(x, y):
-
-    r = 0
-    for i in range(y):
-        r = r + x
-    return r
-def run_tests():
-    for _ in range(100):
-        x = random.randint(0, 100)
-        y = random.randint(0, 100)
-        assert naive_mul(x, y) == x * y, f"Ошибка: {x} * {y} должно быть {x * y}"
-    print(x)
-    print(y)
-    print("Все тесты успешно пройдены!")
-run_tests()
+x = 10
+y = 15
+r = 0
+while x > 0:
+    if x % 2 != 0:
+        r += y
+    x = x // 2
+    y = y * 2
+print (r)
 ```
 3.5
 
@@ -110,6 +103,39 @@ run_tests()
 
 
 3.7
+```
+import random
+def mul_bits(x, y, bits):
+    x &= (2 ** bits - 1)
+    y &= (2 ** bits - 1)
+    return x * y
+def mul16(x, y):
+    mask = 0xFF
+    x_hi = (x >> 8) & mask
+    x_lo = x & mask
+    y_hi = (y >> 8) & mask
+    y_lo = y & mask
+    p1 = mul_bits(x_hi, y_hi, 8)
+    p2 = mul_bits(x_hi, y_lo, 8)
+    p3 = mul_bits(x_lo, y_hi, 8)
+    p4 = mul_bits(x_lo, y_lo, 8)
+    return (p1 << 16) + ((p2 + p3) << 8) + p4
+print("Запуск тестирования функции")
+
+test_cases = [
+    (0, 0), (0, 65535), (65535, 0), (65535, 65535),
+    (255, 255), (256, 256), (1, 65535), (32768, 2)
+]
+for a, b in test_cases:
+    assert mul16(a, b) == a * b, f"Ошибка на граничных значениях: {a} * {b}"
+for _ in range(10000):
+    a = random.randint(0, 65535)
+    b = random.randint(0, 65535)
+    assert mul16(a, b) == a * b, f"Ошибка: {a} * {b} != {mul16(a, b)}"
+print (a)
+print (b)
+print("Тест пройден")
+```
 ## Домашняя работа
 №4
 ```
