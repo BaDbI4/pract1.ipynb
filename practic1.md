@@ -314,29 +314,50 @@ for i in [8, 16, 32]:
 ```
 Задание 9. Таблица умножения
 ```
-
+n = int(input("Введите число: "))
+for i in range(1, 11):
+    print(f"{n} * {i} = {n * i}")
 ```
 Задание 10. Количество символов
 ```
-
+message = input("Введите сообщение: ")
+length = len(message)
+bits = length * 8
+print(f"Символов: {length}, бит: {bits}")
 ```
 Задание 11. Список и его сумма
 ```
-
+numbers = [12, 7, 25, 3, 18]
+total = sum(numbers)
+average = total / len(numbers)
+print(f"Сумма: {total}, среднее арифметическое: {average}")
 ```
 Задание 12. Фильтрация данных
 ```
-
+nums = [5, -2, 8, 0, -7, 14]
+positive = [x for x in nums if x > 0]
+print("Положительные числа:", positive)
 ```
 Задание 13. Сортировка
 ```
-
+grades = [4, 2, 5, 3, 5, 2]
+ascending = sorted(grades)
+descending = sorted(grades, reverse=True)
+print("По возрастанию:", ascending)
+print("По убыванию:", descending)
 ```
 Задание 14. Перевод температуры
 ```
-
+celsius = float(input("Введите температуру в градусах Цельсия: "))
+fahrenheit = celsius * 9/5 + 32
+print(f"{celsius}°C = {fahrenheit}°F")
 ```
 Задание 15. Проверка пароля
 ```
-
+password = "secret123"
+entered = input("Введите пароль: ")
+if entered == password:
+    print("Доступ разрешён")
+else:
+    print("Доступ запрещён")
 ```
