@@ -258,7 +258,7 @@ for i, task in enumerate(tasks):
 for name, task_list in nodes.items():
     print(name, ":", task_list)
 ```
-##Самостоятельная работа
+## Самостоятельная работа
 Задание 1. Привествие
 ```
 print("Hello")
